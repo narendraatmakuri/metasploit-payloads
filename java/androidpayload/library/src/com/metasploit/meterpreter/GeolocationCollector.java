@@ -127,9 +127,10 @@ public class GeolocationCollector extends IntervalCollector  {
             
             for (int j = 0; j < resultCount; ++j) {
                 GeoModel lGeoModObj  = new   GeoModel();
-                lGeoModObj.mGeolatsring   =  input.readUTF();
+                lGeoModObj.mUnixEpoch = input.readLong();
+	       lGeoModObj.mGeolatsring   =  input.readUTF();
                 lGeoModObj.mGeolongstring  =  input.readUTF();
-                this.collections.put(System.currentTimeMillis(), lGeoModObj);
+                this.collections.put(ts, lGeoModObj);
             }
         }
     }
